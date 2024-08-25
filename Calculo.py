@@ -10,5 +10,6 @@ punto1 = int(input("Ingrese el punto x1 por el que pasa la recta: "))
 punto2 = int(input("Ingrese el punto y1 por el que pasa la recta: "))
 
 print("La fórmula para hallar la ecuación es: y - ", punto2, " = ", m, "( x - ", punto1, ")")
+print("hola")
 
 
