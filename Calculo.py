@@ -1,49 +1,31 @@
+import sympy as sp
+from sympy import pretty
+import tkinter as tk
+from tkinter import simpledialog, messagebox
 
-def despejar_si_punto2(m, punto1, punto2):
-    
-    if punto2 > 0:  #Si el punto y1 es positivo
-        print("La fórmula para hallar la ecuación es: y -", punto2, " = ", m, "( x - ", punto1, ")")
-        print("Despejando: " + "y - ", punto2, " = ", m, "x", " - ", m*punto1)
-        print("La ecuación de la recta es: " + "f(x) = ", m, "x", "-", (m*punto1)-punto2)
-    if punto2 < 0:  #Si el punto y1 es negativo
-        print("La fórmula para hallar la ecuación es: y - (", punto2, ")", " = ", m, "( x - ", punto1, ")")
-        print("Despejando: ", "y +", abs(punto2), " = ", m, "x", " - ", m*punto1)
-        print("La ecuación de la recta es: ", "f(x) = ", m, "x", "-", (m*punto1)-punto2)
-    return None
+# Crear una ventana principal
+root = tk.Tk()
+root.withdraw()  # Oculta la ventana principal
 
-def despejar_si_punto1(m, punto1, punto2):
-    if punto1 > 0:   #Si la pendiente es positiva
-        print("La fórmula para hallar la ecuación es: y -", punto2, " = ", m, "( x - ", punto1, ")")
-        print("Despejando: " + "y - ", punto2, " = ", m, "x", " - ", m*punto1)
-        print("La ecuación de la recta es: " + "f(x) = ", m, "x", "-", (m*punto1)-punto2)
-    if punto1 < 0:   #Si la pendiente es negativa
-        print("La fórmula para hallar la ecuación es: y -", punto2, " = ", m, "( x - ", punto1, ")")
-        print("Despejando: " + "y - ", punto2, " = ", m, "x", " + ", abs(m*(punto1)))
-        print("La ecuación de la recta es: " + "f(x) = ", m, "x", "+", abs((m*punto1)-punto2))
-    return None
+# Definir las variables simbólicas
+y, x = sp.symbols('y x')
 
-def despejar_si_pendiente(m, punto1, punto2):
-    if m > 0:   #Si la pendiente es positiva
-        print("La fórmula para hallar la ecuación es: y -", punto2, " = ", m, "( x - ", punto1, ")")
-        print("Despejando: " + "y - ", punto2, " = ", m, "x", " - ", m*punto1)
-        print("La ecuación de la recta es: " + "f(x) = ", m, "x", "-", (m*punto1)-punto2)
-    if m < 0:   #Si la pendiente es negativa
-        print("La fórmula para hallar la ecuación es: y -", punto2, " = ", m, "( x - ", punto1, ")")
-        print("Despejando: " + "y - ", punto2, " = ", m, "x", " + ", abs(m*(punto1)))
-        print("La ecuación de la recta es: " + "f(x) = ", m, "x", "+", abs((m*punto1)-punto2))
-    return None
+# Asignar los valores específicos a z, m y w
+# Pedir tres números al usuario
+z = simpledialog.askinteger("Input", "Ingresa el valor de y1: ")
+m = simpledialog.askinteger("Input", "Ingresa el valor de la pendiente: ")
+w = simpledialog.askinteger("Input", "Ingresa el valor de x1: ")
 
-#Pedir al usuario que ingrese la pendiente de la recta y un punto por donde pase esta (x1, y1)
-#A partir de estos datos, generar la ecuación de la recta, nota 4.0
-#Adicional, generar la gráfica de la recta, nota 5.0
+# Definir la ecuación con los valores dados
+ecuacion = sp.Eq(y - z, m * (x - w))
 
-#Fórmula para hallar la ecuación de la recta: y - y1 = m(x - x1)
+# Despejar la ecuación para y
+solucion_y = sp.solve(ecuacion, y)[0]
 
-m = int(input("Ingrese la pendiente de la recta: "))
-punto1 = int(input("Ingrese el punto x1 por el que pasa la recta: "))
-punto2 = int(input("Ingrese el punto y1 por el que pasa la recta: "))
+# Simplificar la expresión
+solucion_simplificada = sp.simplify(solucion_y)
 
-#print("La fórmula para hallar la ecuación es: y - ", punto2, " = ", m, "( x - ", punto1, ")")
-
-#if m > 0 and punto1 > 0 and punto2 > 0:
-
+# Mostrar la solución en el formato deseado
+#print("La solución de la ecuación es:")
+#print(f"f(x) = {pretty(solucion_simplificada, use_unicode=True)}")
+messagebox.showinfo("Resultado", f"f(x) = {pretty(solucion_simplificada, use_unicode=True)}")
