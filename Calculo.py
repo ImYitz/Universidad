@@ -32,7 +32,7 @@ def graficar_recta_desde_ecuacion(ecuacion_str, x_min=-10, x_max=10):
     plt.plot(x_vals, y_vals, label=f'y = {ecuacion_str}', color='blue')
     
     # Ajustar el aspecto de la gráfica para que no sea tan ancha
-    plt.gca().set_aspect('equal', adjustable='box')
+    plt.gca().set_aspect('auto', adjustable='box')
     
     # Etiquetas y título
     plt.axhline(0, color='black', linewidth=0.5)
