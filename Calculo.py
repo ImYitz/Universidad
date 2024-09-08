@@ -59,9 +59,9 @@ y, x = sp.symbols('y x')
 
 # Asignar los valores específicos a z, m y w
 # Pedir tres números al usuario
-z = simpledialog.askinteger("Input", "Ingresa el valor de y1: ")
-m = simpledialog.askinteger("Input", "Ingresa el valor de la pendiente: ")
-w = simpledialog.askinteger("Input", "Ingresa el valor de x1: ")
+z = simpledialog.askfloat("Input", "Ingresa el valor de y1: ")
+m = simpledialog.askfloat("Input", "Ingresa el valor de la pendiente: ")
+w = simpledialog.askfloat("Input", "Ingresa el valor de x1: ")
 
 # Definir la ecuación con los valores dados
 ecuacion = sp.Eq(y - z, m * (x - w))
