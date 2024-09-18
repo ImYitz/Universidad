@@ -48,14 +48,14 @@ def graficar_recta_desde_ecuacion(ecuacion_str, x_min=-10, x_max=10):
 root = tk.Tk()
 root.withdraw()
 
-# Definir las variables simbólicas
-y, x = sp.symbols('y x')
-
 # Asignar los valores específicos a z, m y w
 # Pedir tres números al usuario
 z = simpledialog.askfloat("Input", "Ingresa el valor de y1: ")
 m = simpledialog.askfloat("Input", "Ingresa el valor de la pendiente: ")
 w = simpledialog.askfloat("Input", "Ingresa el valor de x1: ")
+
+# Definir las variables simbólicas
+y, x = sp.symbols('y x')
 
 # Definir la ecuación con los valores dados
 ecuacion = sp.Eq(y - z, m * (x - w))
