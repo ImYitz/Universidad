@@ -31,7 +31,6 @@ def graficar_recta_desde_ecuacion(ecuacion_str, x_min=-10, x_max=10):
     plt.figure(figsize=(6, 6))
     plt.plot(x_vals, y_vals, label=f'y = {ecuacion_str}', color='blue')
     
-    # Ajustar el aspecto de la gráfica para que no sea tan ancha
     plt.gca().set_aspect('auto', adjustable='box')
     
     # Etiquetas y título
@@ -41,18 +40,13 @@ def graficar_recta_desde_ecuacion(ecuacion_str, x_min=-10, x_max=10):
     plt.xlabel('x')
     plt.ylabel('f(x)')
     
-    # Mostrar cuadrícula
     plt.grid(True)
-    
-    # Mostrar leyenda
     plt.legend()
-    
-    # Mostrar gráfica
     plt.show()
 
 # Crear una ventana principal
 root = tk.Tk()
-root.withdraw()  # Oculta la ventana principal
+root.withdraw()
 
 # Definir las variables simbólicas
 y, x = sp.symbols('y x')
