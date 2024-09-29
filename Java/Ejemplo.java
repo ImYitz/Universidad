@@ -1,8 +1,6 @@
 public class Ejemplo {
 
-    String id;
-    String nombre;
-    String edad;
+    String id, nombre, edad;
 
     public Ejemplo (){
 
